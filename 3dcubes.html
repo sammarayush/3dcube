@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+    body{
+        height: 100vh;
+        background-color: white;
+    }
+    .container{
+        height: 60vh;
+        width: 30vw;
+        position: absolute;
+        top: 50vh;
+        left: 50vw;
+        transform: translate(-50% , -50%);
+        perspective: 1000px;
+    }
+    .box{
+      height: 250px;
+      width: 250px;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      transform-style: preserve-3d;
+      /* transform: rotateY(30deg); */
+      animation: animate 5s linear 1s infinite alternate-reverse;
+     
+
+   }
+   @keyframes animate{
+        
+        0%{
+          
+            transform: rotateX(45deg) rotateY(-45deg);
+        }
+        25%{
+
+            transform: rotateX(-45deg) rotateY(-45deg);
+        }
+        50%{
+   
+            transform: rotateX(45deg) rotateY(45deg);
+        }
+        75%{
+       
+            transform: rotateX(-45deg) rotateY(45deg);
+        }
+        100%{
+       
+            transform: rotateX(45deg) rotateY(-45deg);
+        }
+    
+   }
+   .card{
+       height: 250px;
+       width: 250px;
+       background-color: black;
+       color: white;
+       text-align: center;
+       padding: 100px 0px;
+       border: 2px solid white;
+       font-size: 32px;
+       box-sizing: border-box;
+       position: absolute;
+
+   }
+   #front{
+     transform: translateZ(125px)
+   }
+   #back{
+     transform: translateZ(-125px)
+   }
+   #left{
+       right: 125px;
+      transform: rotateY(-90deg);
+   }
+   #right{
+       left: 125px;
+      transform: rotateY(90deg);
+   }
+   #top{
+       bottom: 125px;
+      transform: rotateX(90deg);
+   }
+   #bottom{
+       top: 125px;
+      transform: rotateX(-90deg);
+   }
+   
+</style>
+<body>
+    <div class="container">
+          <div class="box">      
+            <div class="card" id="front"> front</div>
+            <div class="card" id="back"> back</div>
+            <div class="card" id="left"> left</div>
+            <div class="card" id="right"> right</div>
+            <div class="card" id="top"> top</div>
+            <div class="card" id="bottom"> bottom</div>
+          </div>
+         
+    </div>
+</body>
+</html>
